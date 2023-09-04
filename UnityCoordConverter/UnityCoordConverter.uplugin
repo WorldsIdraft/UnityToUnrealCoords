@@ -1,0 +1,24 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "UnityCoordConverter",
+	"Description": "An Unreal Engine 5 Plugin to convert Unity Coordinates to Unreal with full Blueprint support",
+	"Category": "Other",
+	"CreatedBy": "Flying Fox Ent",
+	"CreatedByURL": "",
+	"DocsURL": "https://github.com/DiabloFox/UnityToUnrealCoords",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "UnityCoordConverter",
+			"Type": "Runtime",
+			"LoadingPhase": "PreLoadingScreen"
+		}
+	]
+}
