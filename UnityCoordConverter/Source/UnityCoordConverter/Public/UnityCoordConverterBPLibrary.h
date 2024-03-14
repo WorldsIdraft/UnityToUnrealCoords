@@ -35,4 +35,8 @@ class UUnityCoordConverterBPLibrary : public UBlueprintFunctionLibrary
 
 	UFUNCTION(BlueprintCallable, meta = (DisplayName = "Convert Unity Rotation", Keywords = "UnityCoordConverter rotation convert x y z"), Category = "UnityCoordConverter")
 	static FRotator UnityRot(FRotator UnityRotator);
+
+	UFUNCTION(BlueprintCallable, meta = (DisplayName = "Convert Unity Scale", Keywords = "UnityCoordConverter rotation convert x y z"), Category = "UnityCoordConverter")
+	static FVector UnityScale(FVector UnityScale);
+	
 };
