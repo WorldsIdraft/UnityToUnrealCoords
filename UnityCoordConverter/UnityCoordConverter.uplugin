@@ -1,7 +1,7 @@
 {
 	"FileVersion": 3,
-	"Version": 1,
-	"VersionName": "1.0",
+	"Version": 2,
+	"VersionName": "1.1",
 	"FriendlyName": "UnityCoordConverter",
 	"Description": "An Unreal Engine 5 Plugin to convert Unity Coordinates to Unreal with full Blueprint support",
 	"Category": "Other",

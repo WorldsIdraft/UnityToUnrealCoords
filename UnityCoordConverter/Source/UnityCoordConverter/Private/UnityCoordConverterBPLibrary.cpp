@@ -21,25 +21,25 @@ FVector UUnityCoordConverterBPLibrary::UnityPos(FVector UnityPosition)
 	return UEPosition;
 }
 
-FRotator UUnityCoordConverterBPLibrary::UnityRot(FRotator unityRotation)
+FRotator UUnityCoordConverterBPLibrary::UnityRot(FVector UnityEuler)
 {
-    /* In Unity, rotations are represented as Euler angles in degrees.
-     Unreal Engine uses a different order for Euler angles (Pitch, Yaw, Roll) and radians.
-    Convert the Unity rotation to Unreal rotation.
-    Roll = X
-    Pitch = Y
-    Yaw = Z
-    */
+    // Normalize to range [-180, 180]
+    auto NormalizeAngle = [](float Angle) -> float {
+        float Result = FMath::Fmod(Angle, 360.0f);
+        if (Result > 180.0f) Result -= 360.0f;
+        if (Result < -180.0f) Result += 360.0f;
+        return Result;
+        };
 
-    // Swap the pitch and yaw angles
-    float UE_X = unityRotation.Roll;
-    float UE_Y = unityRotation.Yaw;
-    float UE_Z = -unityRotation.Pitch;
+    float UnityPitch = UnityEuler.X;
+    float UnityYaw = UnityEuler.Y;
+    float UnityRoll = UnityEuler.Z;
 
-    // Create the Unreal Engine FRotator
-    FRotator ueRotation = FRotator(UE_X, UE_Y, UE_Z);
+    float Pitch = -NormalizeAngle(UnityPitch);
+    float Yaw = NormalizeAngle(UnityYaw);
+    float Roll = -NormalizeAngle(UnityRoll);
 
-    return ueRotation;
+    return FRotator(Pitch, Yaw, Roll);
 }
 
 FVector UUnityCoordConverterBPLibrary::UnityScale(FVector UnityScale)
